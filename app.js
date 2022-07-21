@@ -17,24 +17,26 @@ app.use(express.static(publicDirectoryPath));
 const viewsPath = path.join(__dirname,'/templates/views') 
 app.set('views', viewsPath)
 
-app.get("" , (req, res) => {
+// app.get("" , (req, res) => {
     
-    res.render("index");
-});
+//     res.render("index");
+// });
 
+// get methode
 app.get("/form" , (req, res) => {
     console.log(req.query)
     res.render("form");
 });
 
+// post methode
 app.post("/form" , (req, res) => {
-    console.log(req.body.name);
+    console.log(req.body);
     res.render("form");
 });
 
 app.get("/test" , (req, res) => {
     
-    res.send('<h1>Welcome to site, test Pass...</h1>');
+    res.send('<h1>Welcome to site from Server, test Pass...</h1>');
 });
 
 
@@ -46,5 +48,5 @@ app.get("/test" , (req, res) => {
 
 app.listen(PORT, () => {
 
-console.log("Server is up on port "+PORT);
+console.log(`Server is up on port ${PORT}...`);
 });
