@@ -17,34 +17,33 @@ app.use(express.static(publicDirectoryPath));
 const viewsPath = path.join(__dirname,'/templates/views') 
 app.set('views', viewsPath)
 
-// app.get("" , (req, res) => {
-    
-//     res.render("index");
-// });
+// Main index.ejs page
+app.get("" , (req, res) => {    
+    res.render("index");
+});
 
 // get methode
-app.get("/form" , (req, res) => {
+// After SignIn rederect to main page.
+app.get("/signin" , (req, res) => {
     console.log(req.query)
-    res.render("form");
+    res.render("signin");
 });
 
 // post methode
-app.post("/form" , (req, res) => {
+// After SignUp rederect to main page.
+app.post("/signin" , (req, res) => {
     console.log(req.body);
-    res.render("form");
+    res.render("signin");
 });
 
-app.get("/test" , (req, res) => {
-    
+// Send Test Message to Client
+app.get("/test" , (req, res) => {    
     res.send('<h1>Welcome to site from Server, test Pass...</h1>');
 });
-
 
 // Page 404
 // app.get('*', (req, res) => { 
 //     res.redirect(303,"/") })
-
-
 
 app.listen(PORT, () => {
 
